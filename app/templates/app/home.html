@@ -1,0 +1,45 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="info">
+    <h3>Hi, I'm <span>Christian</span>.</h3>
+    <h1><span>F</span>UTURE <span>W</span>EB <span>D</span>EVELOPER</h1>
+    <h3>My creative personal website<br><br></h3>
+    <a href="#" id="clickMeButton">Click Me</a>
+</div>
+
+<div class="image">
+    <img src="{% static 'images/cat-small.png' %}" class="cat">
+</div>
+
+<div class="icons">
+    <a href="https://facebook.com/cchaanno" target="_blank">
+        <ion-icon name="logo-facebook"></ion-icon>
+    </a>
+    <a href="#" id="discordIcon">
+        <ion-icon name="logo-discord"></ion-icon>
+    </a>
+    <a href="https://github.com/0clarkkk" target="_blank">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+</div>
+
+<!-- Discord Modal -->
+<div id="discordModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>My Discord Username:</h2>
+        <p class="username">deleteduserl3ff5wqz</p>
+    </div>
+</div>
+
+<!-- Click Me Modal -->
+<div id="clickMeModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeClickMeModal">&times;</span>
+        <button id="meowButton" class="meow-btn">Meow!</button>
+    </div>
+</div>
+
+{% endblock content %}

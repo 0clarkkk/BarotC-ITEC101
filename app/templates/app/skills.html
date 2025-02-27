@@ -1,0 +1,157 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Skills</title>
+
+    <style>
+        /* CSS directly inside the HTML template */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+        }
+
+        .skills {
+            display: flex;
+            flex-direction: column; /* Makes layout a single column */
+            gap: 30px;
+        }
+
+        .skill-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-card h2 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .skill-card p {
+            color: #7f8c8d;
+        }
+
+        /* Skill progress bar styles */
+        .skill-bar-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 25px;
+            height: 10px;
+            margin-top: 10px;
+        }
+
+        .skill-bar {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            height: 20px; /* Adjusted height for better visibility */
+            line-height: 20px;
+        }
+
+        .html-bar {
+            width: 70%;
+            background-color: #e44d26;
+        }
+
+        .css-bar {
+            width: 70%;
+            background-color: #2965f1;
+        }
+
+        .javascript-bar {
+            width: 35%;
+            background-color: #f7df1e;
+        }
+
+        .python-bar {
+            width: 40%;
+            background-color: #306998;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>My Skills</h1>
+    <p>Here are the skills I have developed as a web developer:</p>
+
+<!-- Skill Card 1: HTML -->
+<div class="skill-card">
+    <h2>HTML</h2>
+    <p>Proficient in creating structured and semantic HTML.</p>
+    <div class="skill-bar-container">
+        <div class="skill-bar html-bar">70%</div>
+    </div>
+</div>
+
+<!-- Skill Card 2: CSS -->
+<div class="skill-card">
+    <h2>CSS</h2>
+    <p>Skilled in styling web pages with modern CSS techniques like Flexbox and Grid.</p>
+    <div class="skill-bar-container">
+        <div class="skill-bar css-bar">70%</div>
+    </div>
+</div>
+
+<!-- Skill Card 3: JavaScript -->
+<div class="skill-card">
+    <h2>JavaScript</h2>
+    <p>Experience in building interactive web features using JavaScript and frameworks like React.</p>
+    <div class="skill-bar-container">
+        <div class="skill-bar javascript-bar">35%</div>
+    </div>
+</div>
+
+<!-- Skill Card 4: Python/Django -->
+<div class="skill-card">
+    <h2>Python/Django</h2>
+    <p>Proficient in using Python with Django to build full-stack web applications.</p>
+    <div class="skill-bar-container">
+        <div class="skill-bar python-bar">40%</div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>
+
+{% endblock content %}

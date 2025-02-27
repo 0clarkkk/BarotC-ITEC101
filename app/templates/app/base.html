@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/cat.ico' %}" type="image/x-icon">
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <img src="{% static 'images/cat-logo.png' %}" class="bg">
+            {% include 'app/navbar.html' %}
+        </div>
+        
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    <script src="{% static 'js/base.js' %}"></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>

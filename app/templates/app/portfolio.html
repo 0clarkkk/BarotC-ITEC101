@@ -1,0 +1,180 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        /* Portfolio Section */
+        #portfolio {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .project {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .project img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .project h3, 
+        .project p {
+            color: black; /* Set text color to black */
+        }
+
+        .see-more {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .see-more:hover {
+            background: #2dad9d;
+        }
+
+        /* Responsive for smaller screens */
+        @media (max-width: 900px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr); /* 2 Columns */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr; /* 1 Column */
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            width: 50%;
+            max-width: 600px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .close {
+            float: right;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        #modal-images img {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+
+    <div id="portfolio">
+        <h1 class="port-headings">PORTFOLIO</h1>
+        <div class="gallery">
+
+            <div class="project">
+                <img src="{% static 'images/port1.png' %}" alt="Movie Wise">
+                <h3>Movie Wise</h3>
+                <p>• CSharp (C#)</p>
+                <p>• Visual Studio</p>
+                <button class="see-more" onclick="openModal('Movie Wise', 'A movie recommendation and watchlist application.', ['port1.png', 'port2.png', 'port3.png', 'port4.png', 'port5.png'])">
+                    See More
+                </button>
+            </div>
+
+            <div class="project">
+                <img src="{% static 'images/port6.png' %}" alt="Class Masterlist">
+                <h3>Class Masterlist</h3>
+                <p>• Python/HTML/CSS</p>
+                <p>• Visual Studio Code</p>
+                <button class="see-more" onclick="openModal('Class Masterlist', 'A student information management system.', ['port6.png'])">
+                    See More
+                </button>
+            </div>
+
+            <div class="project">
+                <img src="{% static 'images/port7.png' %}" alt="Class Masterlist">
+                <h3>Snap Cart</h3>
+                <p>• Java</p>
+                <p>• Eclipse</p>
+                <button class="see-more" onclick="openModal('Class Masterlist', 'A student information management system.', ['port7.png', 'port8.png'])">
+                    See More
+                </button>
+            </div>
+
+            <div class="project">
+                <img src="{% static 'images/port11.png' %}" alt="Class Masterlist">
+                <h3>Skyline View Hotel</h3>
+                <p>• Python/HTML/CSS</p>
+                <p>• Visual Studio Code</p>
+                <button class="see-more" onclick="openModal('Class Masterlist', 'A student information management system.', ['port9.png', 'port10.png', 'port11.png', 'port12.png', 'port13.png', 'port14.png'])">
+                    See More
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <div id="modal-images"></div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(title, description, images) {
+            document.getElementById("modal-title").innerText = title;
+            document.getElementById("modal-description").innerText = description;
+
+            let imagesContainer = document.getElementById("modal-images");
+            imagesContainer.innerHTML = "";
+
+            images.forEach(img => {
+                let imgElement = document.createElement("img");
+                imgElement.src = "/static/images/" + img;
+                imgElement.style.width = "100%";
+                imgElement.style.borderRadius = "5px";
+                imgElement.style.marginTop = "10px";
+                imagesContainer.appendChild(imgElement);
+            });
+
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+{% endblock content %}
